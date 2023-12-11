@@ -72,6 +72,10 @@ jobs:
         run: |
           . venv/bin/activate
           pnpm test:browser
+      - name: run gradio custom components test
+        run: |
+          . venv/bin/activate
+          pnpm test:custom-components
       - name: upload screenshots
         uses: actions/upload-artifact@v3
         if: always()
@@ -79,10 +83,6 @@ jobs:
           name: playwright-screenshots
           path: |
             ./test-results
-      - name: run gradio custom components test
-        run: |
-          . venv/bin/activate
-          pnpm test:custom-components
       - name: run browser component tests
         run: |
           . venv/bin/activate
